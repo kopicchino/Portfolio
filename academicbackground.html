@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Academic Background</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: white;
+      position: relative;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a.active,
+    nav a:hover {
+      color: #b74b4b;
+    }
+
+    #education {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .background-logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 800px;
+      background-repeat: no-repeat;
+      background-position: center;
+      filter: blur(25px);
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section-title {
+      font-size: 4.5rem;
+      color: #b74b4b;
+      margin-bottom: 3rem;
+      font-weight: 600;
+    }
+
+    .edu-selector {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .edu-tab {
+      background-color: #121212;
+      border: 2px solid #b74b4b;
+      padding: 1rem 2rem;
+      border-radius: 2rem;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 120px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(183, 75, 75, 0.2);
+    }
+
+    .edu-tab img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-tab span {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .edu-tab.active {
+      background-color: #ffffff;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .edu-content-container {
+      max-width: 700px;
+      margin: 0 auto;
+      background-color: #161616;
+      padding: 2rem;
+      border-radius: 2rem;
+      box-shadow: 0 0 15px rgba(183, 75, 75, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .edu-content {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .edu-content.active {
+      display: block;
+    }
+
+    .edu-content h3 {
+      font-size: 2.5rem;
+      color: #b74b4b;
+      margin-bottom: 1rem;
+    }
+
+    .edu-content p {
+      font-size: 1.5rem;
+      color: #ddd;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .edu-tab {
+        width: 100px;
+        padding: 1rem;
+      }
+
+      .edu-tab span {
+        font-size: 1rem;
+      }
+
+      .edu-content h3 {
+        font-size: 2rem;
+      }
+
+      .edu-content p {
+        font-size: 1.2rem;
+      }
+
+      .section-title {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+        <a href="index.html" class="logo">Jeff</a>
+        <nav>
+    <a href="index.html">Home</a>
+    <a href="aboutme.html">About Me</a> <!-- <- Set active here -->
+    <a href="technicalskills.html">Technical Skills</a>
+    <a href="academicbackground.html"class="active">Academic Background</a>
+    <a href="academicachievements.html">Academic Achievements</a>
+    <a href="contactandsocials.html">Contact and Socials</a>
+</nav>
+</header>
+
+  <section id="education">
+    <div class="background-logo" id="bgLogo"></div>
+
+    <h2 class="section-title">Academic Background</h2>
+
+    <div class="edu-selector">
+      <button class="edu-tab active" onclick="showEdu('elem', this, 'tanong-logo.png')">
+        <img src="tanong-logo.png" alt="Tañong Logo">
+        <span>Elementary</span>
+      </button>
+
+      <button class="edu-tab" onclick="showEdu('jhs', this, 'tanong-logo.png')">
+        <img src="tanong-logo.png" alt="Tañong Logo">
+        <span>Junior High</span>
+      </button>
+
+      <button class="edu-tab" onclick="showEdu('shs', this, 'arellano-logo.png')">
+        <img src="arellano-logo.png" alt="Arellano Logo">
+        <span>Senior High</span>
+      </button>
+
+      <button class="edu-tab" onclick="showEdu('college', this, 'tup-logo.png')">
+        <img src="tup-logo.png" alt="TUP Logo">
+        <span>College</span>
+      </button>
+    </div>
+
+    <div class="edu-content-container">
+      <div class="edu-content active" id="elem">
+        <h3>Tañong Integrated School - Malabon</h3>
+        <p>Completed Elementary Education (2011–2017) - With Honors Graduate</p>
+      </div>
+
+      <div class="edu-content" id="jhs">
+        <h3>Tañong Integrated School - Malabon</h3>
+        <p>Completed Junior High School (2017–2022) - With Honors Graduate</p>
+      </div>
+
+      <div class="edu-content" id="shs">
+        <h3>Arellano University – Jose Rizal Campus - Malabon</h3>
+        <p>Senior High Graduate – STEM Strand (2022–2024) - Class Valedictorian (With Highest Honors Graduate) - Best in Scientific Investigatory Project in STEM (2024) and Best in Work Immersion for STEM and Overall 1st Place in Research Colloquium 2024.</p>
+      </div>
+
+      <div class="edu-content" id="college">
+        <h3>Technological University of the Philippines – Manila</h3>
+        <p>Currently 2nd Year taking Bachelor of Science in Information Technology (2024–Present) - Consistent Dean's Lister and Former Councilor for Internal Control of College of Science - College Student Council (A.Y 2024–2025).</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function showEdu(id, button, logoPath) {
+      const contents = document.querySelectorAll('.edu-content');
+      const tabs = document.querySelectorAll('.edu-tab');
+      const bgLogo = document.getElementById('bgLogo');
+
+      contents.forEach(c => c.classList.remove('active'));
+      tabs.forEach(t => t.classList.remove('active'));
+
+      document.getElementById(id).classList.add('active');
+      button.classList.add('active');
+
+      // Set background logo
+      bgLogo.style.backgroundImage = `url('${logoPath}')`;
+    }
+
+    // Set initial logo on load
+    window.onload = () => {
+      document.getElementById('bgLogo').style.backgroundImage = "url('tanong-logo.png')";
+    };
+  </script>
+</body>
+</html>
